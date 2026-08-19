@@ -32,7 +32,7 @@ export const PeoplePage = () => {
 
       <div className="block">
         <div className="box table-container">
-          {isLoading && <Loader />}{' '}
+          {isLoading && <Loader />}
           {hasError && (
             <p data-cy="peopleLoadingError" className="has-text-danger">
               Something went wrong
