@@ -3,15 +3,24 @@ import { Person } from '../types/Person';
 
 type Props = {
   person: Person;
+  people: Person[];
 };
 
-export const PersonLink = ({ person }: Props) => {
+export const PersonLink = ({ person, people }: Props) => {
+  const personFromList = people.find(
+    personFromPeople => personFromPeople.name === person.name,
+  );
+
+  if (!personFromList) {
+    return <>{person.name}</>;
+  }
+
   return (
     <Link
-      to={`/people/${person.slug}`}
-      className={person.sex === 'f' ? 'has-text-danger' : ''}
+      to={`/people/${personFromList.slug}`}
+      className={personFromList.sex === 'f' ? 'has-text-danger' : ''}
     >
-      {person.name}
+      {personFromList.name}
     </Link>
   );
 };

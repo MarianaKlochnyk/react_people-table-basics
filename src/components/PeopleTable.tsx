@@ -43,7 +43,7 @@ export const PeopleTable = ({ people, selectedPerson }: Props) => {
               })}
             >
               <td>
-                <PersonLink person={person} />
+                <PersonLink person={person} people={people} />
               </td>
 
               <td>{person.sex}</td>
@@ -54,7 +54,7 @@ export const PeopleTable = ({ people, selectedPerson }: Props) => {
                 {!person.motherName ? (
                   '-'
                 ) : mother ? (
-                  <PersonLink person={mother} />
+                  <PersonLink person={mother} people={people} />
                 ) : (
                   person.motherName
                 )}
@@ -64,7 +64,7 @@ export const PeopleTable = ({ people, selectedPerson }: Props) => {
                 {!person.fatherName ? (
                   '-'
                 ) : father ? (
-                  <PersonLink person={father} />
+                  <PersonLink person={father} people={people} />
                 ) : (
                   person.fatherName
                 )}
